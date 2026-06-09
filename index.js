@@ -89,6 +89,23 @@ res.redirect("/musica/lst")
 
 })
 
+//Edição
+
+app.get('/genero/edit/:id', async (req, res) => {
+
+const genero = await Genero.findById(req.params.id)
+
+res.render("genero/edit", {genero})
+
+})
+
+app.post('/genero/edit/:id', async (req, res) => {
+
+const genero = await Genero.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("genero/editok")
+
+})
 
 app.listen(PORT, ()=>{
  console.log(
