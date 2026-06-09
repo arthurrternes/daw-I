@@ -50,6 +50,24 @@ res.redirect("/genero/lst")
 
 })
 
+//Edição
+
+app.get('/genero/edit/:id', async (req, res) => {
+
+const genero = await Genero.findById(req.params.id)
+
+res.render("genero/edit", {genero})
+
+})
+
+app.post('/genero/edit/:id', async (req, res) => {
+
+const genero = await Genero.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("genero/editok")
+
+})
+
 //Rotas de música
 
 app.get("/musica/lst", async (req, res) => {
@@ -91,19 +109,19 @@ res.redirect("/musica/lst")
 
 //Edição
 
-app.get('/genero/edit/:id', async (req, res) => {
+app.get('/musica/edit/:id', async (req, res) => {
 
-const genero = await Genero.findById(req.params.id)
+const musica = await Musica.findById(req.params.id)
 
-res.render("genero/edit", {genero})
+res.render("musica/edit", {musica})
 
 })
 
-app.post('/genero/edit/:id', async (req, res) => {
+app.post('/musica/edit/:id', async (req, res) => {
 
-const genero = await Genero.findByIdAndUpdate(req.params.id, req.body)
+const musica = await Musica.findByIdAndUpdate(req.params.id, req.body)
 
-res.render("genero/editok")
+res.render("musica/editok")
 
 })
 
