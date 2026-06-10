@@ -1,7 +1,8 @@
 import express from "express";
 import Genero from './models/Genero.js';
 import Musica from './models/Musica.js';
-
+import Artista from './models/Artista.js';
+import Album from './models/Album.js';
 const app = express();
 const PORT = 3031;
 
@@ -122,6 +123,93 @@ app.post('/musica/edit/:id', async (req, res) => {
 const musica = await Musica.findByIdAndUpdate(req.params.id, req.body)
 
 res.render("musica/editok")
+
+})
+
+//artista 
+app.get("/Artista/lst", async (req, res) => {
+  const artista = await Artista.find()
+  res.render("artista/lst", {artista});
+});
+
+app.get("/artista/add",  (req, res) => {
+
+  res.render("artista/add");
+});
+
+app.post("/artista/add", async (req, res) => {
+  const {nome,pais,ano} = req.body;
+  //grava no banco de dados(Mongo)
+  await Artista.create({nome,pais,ano});
+  res.render("artista/addok");
+});
+
+//excluir
+app.get('/artista/del/:id', async (req, res) => {
+const artista = await Artista.findByIdAndDelete(req.params.id)
+res.redirect("/artista/lst")
+
+})
+
+//Edição
+
+app.get('/artista/edit/:id', async (req, res) => {
+
+const artista = await Artista.findById(req.params.id)
+
+res.render("artista/edit", {artista})
+
+})
+
+app.post('/artista/edit/:id', async (req, res) => {
+
+const artista = await Artista.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("artista/editok")
+
+})
+
+//album
+app.get("/album/lst", async (req, res) => {
+  const albums = await Album.find()
+  res.render("album/lst", {albums});
+});
+
+app.get("/album/add",  (req, res) => {
+
+  res.render("album/add");
+});
+
+app.post("/album/add", async (req, res) => {
+  const {nome,artista,ano} = req.body ;
+  //grava no banco de dados(Mongo)
+  await Album.create({nome,artista,ano});
+  res.render("album/addok");
+});
+
+
+//excluir
+app.get('/album/del/:id', async (req, res) => {
+const albums = await Album.findByIdAndDelete(req.params.id)
+res.redirect("/album/lst")
+
+})
+
+//Edição
+
+app.get('/album/edit/:id', async (req, res) => {
+
+const album = await Album.findById(req.params.id)
+
+res.render("album/edit", {album})
+
+})
+
+app.post('/album/edit/:id', async (req, res) => {
+
+const album = await Album.findByIdAndUpdate(req.params.id, req.body)
+
+res.render("album/editok")
 
 })
 

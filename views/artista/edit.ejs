@@ -1,0 +1,31 @@
+<%-include('../cabecalho.ejs')%>
+ <header>
+        <h3>Editar Genero</h3>
+      </header>
+      <div class="content">
+        <form id="form-instrumento" method="post" autocomplete="off" >
+          <div class="grid">
+            <div>
+              <label for="nome">Nome do Artista</label>
+              <input id="nome" value="<%=artista.nome%>" name="nome" type="text" placeholder="Ex:Caetano" required>
+            </div>
+            <br>
+              <div>
+              <label for="nome">País</label>
+              <input id="pais" value="<%=artista.pais%>" name="pais" type="text" placeholder="Ex:Brasileiro" required>
+            </div>
+            <br>
+              <div>
+              <label for="nome">ano de inicio</label>
+              <input id="nome" value="<%=artista.ano%>" name="ano" type="text" required>
+            </div>
+           <div class="field-help">Os campos com * são obrigatórios.</div>
+          <footer>
+            <a type="button" class="btn ghost" id="btn-cancelar" href="/genero/lst">Cancelar</a>
+            <button type="submit" class="btn primary">Editar Artista</button>
+          </footer>
+        </form>
+      </div>
+
+  <%-include('../rodape.ejs')%>
+

@@ -1,0 +1,35 @@
+
+<%- include('../cabecalho.ejs')%>
+<main class="container">
+        <a href="/genero/lst" class="back-link">← Voltar para lista</a>
+
+        <div class="form-container">
+            <h2>Cadastrar Novo Album</h2>
+            
+            <form method="post" >
+                <div class="form-group">
+                    <label for="nome">Nome do album</label>
+                    <input 
+                        type="text" 
+                        id="nome" 
+                        name="nome" 
+                        
+                    >
+                    <br>
+                <label for="artista">Artista</label>  
+                    <input type="text" id="artista" name="artista">   
+                    <br>
+                    <label for="ano">Ano de Lançamento
+                    </label>               
+                    <input type="number" min="1980" max="2026">
+                </div>
+
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-success">Cadastrar</button>
+                    <a href="album/lst" class="btn btn-secondary">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </main>
+<%- include('../rodape.ejs')%>

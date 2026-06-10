@@ -1,0 +1,36 @@
+
+<%- include('../cabecalho.ejs')%>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>Lista de Albuns</h2>
+            <a href="/album/add" class="btn btn-success">+ Novo Album</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome do album</th>
+                        <th>artista</th>
+                        <th>Ano de lançamento</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%albums.forEach(album => {%>
+                    <tr>
+                        <td><%=albums.nome%></td>
+                        <td><%=albums.artista%></td>
+                        <td><%=albums.ano%></td>
+                        <td><a href="/album/del/<%=album.id%>" class="link">Excluir</a>
+                         <a href="/album/edit/<%=album.id%>" class="link">Editar</a></td>
+                    </tr>
+                    <%})%>
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+<%- include('../rodape.ejs')%>

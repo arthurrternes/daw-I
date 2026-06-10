@@ -1,0 +1,36 @@
+
+<%- include('../cabecalho.ejs')%>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>Lista de Artistas</h2>
+            <a href="/artista/add" class="btn btn-success">+ Novo Artista</a>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>País</th>
+                        <th>Ano de Inicio</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%artista.forEach(artista => {%>
+                    <tr>
+                        <td><%=artista.nome%></td>
+                        <td><%=artista.pais%></td>
+                        <td><%=artista.ano%></td>
+                        <td><a href="/artista/del/<%=artista.id%>" class="link">Excluir</a>
+                         <a href="/artista/edit/<%=artista.id%>" class="link">Editar</a></td>
+                    </tr>
+                    <%})%>
+                    
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+<%- include('../rodape.ejs')%>
