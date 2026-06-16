@@ -20,9 +20,9 @@
                 <tbody>
                     <%albums.forEach(album => {%>
                     <tr>
-                        <td><%=albums.nome%></td>
-                        <td><%=albums.artista%></td>
-                        <td><%=albums.ano%></td>
+                        <td><%=album.nome%></td>
+                        <td><%=album.artista%></td>
+                        <td><%=album.ano%></td>
                         <td><a href="/album/del/<%=album.id%>" class="link">Excluir</a>
                          <a href="/album/edit/<%=album.id%>" class="link">Editar</a></td>
                     </tr>

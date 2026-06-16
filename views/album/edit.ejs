@@ -1,22 +1,26 @@
 <%-include('../cabecalho.ejs')%>
  <header>
-        <h3>Editar Genero</h3>
+        <h3>Editar Album</h3>
       </header>
       <div class="content">
         <form id="form-instrumento" method="post" autocomplete="off" >
           <div class="grid">
             <div>
-              <label for="nome">ID do Genero</label>
-              <input id="id" value="<%=genero.id%>" name="id" type="text" placeholder="Ex:Gope" required>
+              <label for="nome">nome do album</label>
+              <input id="id" value="<%=album.nome%>" name="nome" type="text"  required>
             </div>
             <div>
-              <label for="nome">Nome do Genero</label>
-              <input id="nome" value="<%=genero.nome%>" name="nome" type="text" placeholder="Ex:Gope" required>
+              <label for="nome">nome do artista</label>
+              <input id="nome" value="<%=album.artista%>" name="artista" type="text"  required>
+            </div>
+              <div>
+              <label for="nome">ano de lançamento</label>
+              <input id="nome" value="<%=album.ano%>" name="ano" type="number" required>
             </div>
            <div class="field-help">Os campos com * são obrigatórios.</div>
           <footer>
-            <a type="button" class="btn ghost" id="btn-cancelar" href="/genero/lst">Cancelar</a>
-            <button type="submit" class="btn primary">Editar Genero</button>
+            <a type="button" class="btn ghost" id="btn-cancelar" href="/album/lst">Cancelar</a>
+            <button type="submit" class="btn primary">Editar Album</button>
           </footer>
         </form>
       </div>
